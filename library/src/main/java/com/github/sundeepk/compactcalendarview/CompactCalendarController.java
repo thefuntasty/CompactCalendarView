@@ -104,6 +104,7 @@ class CompactCalendarController {
     private int currentSelectedDayBackgroundColor;
     private int currentSelectedDayTextColor;
     private int calenderBackgroundColor = Color.WHITE;
+    private int calendarDaysBackgroundColor = Color.WHITE;
     private int otherMonthDaysTextColor;
     private TimeZone timeZone;
 
@@ -149,6 +150,7 @@ class CompactCalendarController {
                 currentSelectedDayBackgroundColor = typedArray.getColor(R.styleable.CompactCalendarView_compactCalendarCurrentSelectedDayBackgroundColor, currentSelectedDayBackgroundColor);
                 currentSelectedDayTextColor = typedArray.getColor(R.styleable.CompactCalendarView_compactCalendarCurrentSelectedDayTextColor, calenderTextColor);
                 calenderBackgroundColor = typedArray.getColor(R.styleable.CompactCalendarView_compactCalendarBackgroundColor, calenderBackgroundColor);
+                calendarDaysBackgroundColor = typedArray.getColor(R.styleable.CompactCalendarView_compactCalendarDaysBackgroundColor, calendarDaysBackgroundColor);
                 multiEventIndicatorColor = typedArray.getColor(R.styleable.CompactCalendarView_compactCalendarMultiEventIndicatorColor, multiEventIndicatorColor);
                 textSize = typedArray.getDimensionPixelSize(R.styleable.CompactCalendarView_compactCalendarTextSize,
                         (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, textSize, context.getResources().getDisplayMetrics()));
@@ -719,9 +721,11 @@ class CompactCalendarController {
     }
 
     private void drawCalenderBackground(Canvas canvas) {
-        dayPaint.setColor(calenderBackgroundColor);
+        dayPaint.setColor(calendarDaysBackgroundColor);
         dayPaint.setStyle(Paint.Style.FILL);
-        canvas.drawRect(0, 0, width, height, dayPaint);
+        canvas.drawRect(0, 0, width, textHeight, dayPaint);
+        dayPaint.setColor(calenderBackgroundColor);
+        canvas.drawRect(0, textHeight, width, height, dayPaint);
         dayPaint.setStyle(Paint.Style.STROKE);
         dayPaint.setColor(calenderTextColor);
     }
