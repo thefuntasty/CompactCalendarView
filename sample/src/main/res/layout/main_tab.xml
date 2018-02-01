@@ -21,7 +21,7 @@
         app:compactCalendarDayTextColor="#ffffff"
         app:compactCalendarCurrentSelectedDayBackgroundColor="#12a6dd"
         app:compactCalendarCurrentSelectedDayTextColor="#ffffff"
-        app:compactCalendarCurrentDayBackgroundColor="#e4e9ed"
+        app:compactCalendarCurrentDayBackgroundColor="@android:color/transparent"
         app:compactCalendarDisplayOtherMonthDays="true"
         app:compactCalendarCurrentDayIndicatorStyle="fill_large_indicator"
         app:compactCalendarCurrentDayTextColor="#12a6dd"
